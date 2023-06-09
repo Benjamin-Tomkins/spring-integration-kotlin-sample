@@ -61,15 +61,14 @@ class FileConfiguration(private val channels: ChannelsConfiguration) {
 
     // Create an integration flow to write CSV files to the output directory
     @Bean fun csvFlow() = integrationFlow(channels.csv()) {
-        handle(Files
-                .outboundAdapter(csv)
-                .autoCreateDirectory(true)
-              )}
+        handle(
+            Files.outboundAdapter(csv)
+                 .autoCreateDirectory(true))}
 
     // Create an integration flow to write TXT files to the output directory
     @Bean fun txtFlow() = integrationFlow(channels.txt()) {
-        handle(Files
-                .outboundAdapter(txt)
-                .autoCreateDirectory(true)
-              )}
+        handle(
+            Files.outboundAdapter(txt)
+                 .autoCreateDirectory(true))}
+    
 }
